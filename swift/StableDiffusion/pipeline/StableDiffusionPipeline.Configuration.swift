@@ -36,7 +36,7 @@ extension StableDiffusionPipeline {
         /// Safety checks are only performed if `self.canSafetyCheck && !disableSafety`
         public var disableSafety: Bool = false
         /// The type of Scheduler to use.
-        public var schedulerType: StableDiffusionScheduler = .pndmScheduler
+        public var schedulerType: StableDiffusionScheduler = .eulerDiscreteScheduler
         /// The type of RNG to use
         public var rngType: StableDiffusionRNG = .numpyRNG
         

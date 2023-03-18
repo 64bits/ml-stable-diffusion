@@ -12,6 +12,8 @@ public enum StableDiffusionScheduler {
     case pndmScheduler
     /// Scheduler that uses a second order DPM-Solver++ algorithm
     case dpmSolverMultistepScheduler
+    /// Scheduler that uses Euler
+    case eulerDiscreteScheduler
 }
 
 /// RNG compatible with StableDiffusionPipeline
@@ -148,6 +150,7 @@ public struct StableDiffusionPipeline: ResourceManaging {
             switch config.schedulerType {
             case .pndmScheduler: return PNDMScheduler(stepCount: config.stepCount)
             case .dpmSolverMultistepScheduler: return DPMSolverMultistepScheduler(stepCount: config.stepCount)
+            case .eulerDiscreteScheduler: return EulerDiscreteScheduler(stepCount: config.stepCount)
             }
         }
         let stdev = scheduler[0].initNoiseSigma

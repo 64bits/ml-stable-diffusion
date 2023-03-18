@@ -245,11 +245,12 @@ enum ComputeUnits: String, ExpressibleByArgument, CaseIterable {
 
 @available(iOS 16.2, macOS 13.1, *)
 enum SchedulerOption: String, ExpressibleByArgument {
-    case pndm, dpmpp
+    case pndm, dpmpp, euler
     var stableDiffusionScheduler: StableDiffusionScheduler {
         switch self {
         case .pndm: return .pndmScheduler
         case .dpmpp: return .dpmSolverMultistepScheduler
+        case .euler: return .eulerDiscreteScheduler
         }
     }
 }
